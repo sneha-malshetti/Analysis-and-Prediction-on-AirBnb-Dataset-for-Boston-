@@ -95,6 +95,7 @@
 	</head>
 
 	<body>
+	{%block body%}
 		<div class = "container-fluid">
 			<div class="col-sm-12">
 	      		<div class="well">
@@ -106,7 +107,7 @@
 		        	<h1>The Best Deals in the City !</h1>
 		        </div>
 		        <div class = "col-sm-4">
-		        	<a href ="user_home.htm"><button type="button" class="btn btn-info" id="back_btn"><< Back</button></a>
+		        	<a href ="/user_home.htm"><button type="button" class="btn btn-info" id="back_btn"><< Back</button></a>
 		        </div>
 	        </div>
 	        <div>
@@ -131,9 +132,7 @@
 	        			<td>
 	        				<select class = "select_section">
 								<option value="Boston">Boston</option>
-								<option value="Chicago">Chicago</option>
-								<option value="Mumbai">Mumbai</option>
-								<option value="Delhi">Delhi</option>
+								<option value="Delhi">Newyork</option>
 							</select>
 	        			</td>
 	        		</tr>
@@ -163,7 +162,7 @@
 	        		</tr>
 	        	</table>
 	        </div>
-	        
+	    {%endblock}    
 	</body>
 
 	<script>

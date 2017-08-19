@@ -34,20 +34,54 @@ def render_prediction():
 def render_classification():
     return render_template('classification.html')
 
+	
+#owner pages
 
 @app.route('/ownerAnalysis')
 def ownerAnalysis():
     return render_template('ownerAnalysis.html')
 
+@app.route('/eda')
+def eda():
+    return render_template('eda.html')
+
+	
+@app.route('/ownerHome')
+def ownerHome():
+    return render_template('ownerHome.htm')
+
+
 
 @app.route('/ownerPrediction')
 def ownerPrediction():
-    return render_template('ownerPrediction.html')
+    return render_template('ownerPrediction.htm')
 
+#userpages
 
 @app.route('/user_home')
 def user_home():
-    return render_template('users_home.htm')
+    return render_template('user_home.htm')
+
+@app.route('/userPrediction')
+def userPrediction():
+    return render_template('userPrediction.htm')
+
+@app.route('/userAnalytics')
+def userAnalytics():
+    return render_template('userAnalytics.htm')
+	
+#investor Pages
+@app.route('/investorHome')
+def investorHome():
+    return render_template('investorHome.htm')
+
+@app.route('/investorPrediction')
+def investorPrediction():
+    return render_template('investorPrediction.htm')
+
+@app.route('/investorAnalysis')
+def investorAnalysis():
+    return render_template('investorAnalysis.htm')
 
 
 @app.route('/prediction/getPrediction', methods=['POST'])

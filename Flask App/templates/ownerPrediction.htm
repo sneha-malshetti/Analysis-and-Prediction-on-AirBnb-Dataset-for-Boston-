@@ -96,6 +96,7 @@
 	</head>
 
 	<body>
+	{%block body%}
 		<div class = "container-fluid">
 			<div class="col-sm-12">
 	      		<div class="well">
@@ -190,9 +191,10 @@
 	        			</td>
 	        		</tr>
 	  	        </table>
-	  	        <input type="submit" class="btn btn-success" id="submit_btn" />
+	  	        <a href ="/classification"><input type="submit" class="btn btn-success" id="submit_btn" /></a>
 	        
 	    </div>
+		{%endblock}
 	</body>
 
 	<script>
