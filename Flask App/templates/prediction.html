@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Team1-Prediction-Classification</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--header start-->
+    <div id="headerdiv">
+            <div class="row">
+                <h1>Predictive And Classification Modelling</h1>
+            </div>
+    </div>
+   
+            <div id="sidebar">
+                <ul class="nav nav-pills nav-stacked">
+                  <li role="presentation" class="active"><a href="#">Prediction</a></li>
+                  
+                </ul>
+            </div>
+            <!--Sidebar end-->
+            <!-- Prediction-->
+
+            <div id="bodydivwrapper" class ="row">
+               
+                <div id="bodydiv">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div id="databaseNames" class="lead text-left">
+                               
+"host_response_rate
+<input id="host_response_rate" type="text" class="form-control" placeholder="" value="" maxlength="3"/>
+        host_total_listings_count
+		<input id="host_response_rate" type="text" class="form-control" placeholder="" value="" maxlength="3"/>
+		
+        accommodates
+        <input id="accommodates" type="text" class="form-control" placeholder="" value="" maxlength="3"/>
+		bathrooms
+		<input id="bathrooms" type="text" class="form-control" placeholder="" value="" maxlength="3"/>
+        beds
+		<input id="beds" type="text" class="form-control" placeholder="" value="" maxlength="3"/>
+        security_deposit
+		<input id="security_deposit" type="text" class="form-control" placeholder="" value="" maxlength="3"/>
+        cleaning_fee
+		<input id="cleaning_fee" type="text" class="form-control" placeholder="" value="" maxlength="3"/>
+        number_of_reviews
+		<input id="number_of_reviews" type="text" class="form-control" placeholder="" value="" maxlength="3"/>
+        review_scores_rating
+		<input id="review_scores_rating" type="text" class="form-control" placeholder="" value="" maxlength="3"/>
+        reviews_per_month
+		<input id="reviews_per_month" type="text" class="form-control" placeholder="" value="" maxlength="3"/>
+        ScoredRating
+		<input id="ScoredRating" type="text" class="form-control" placeholder="" value="" maxlength="3"/>
+        moderatePolicy
+		<input id="moderatePolicy" type="text" class="form-control" placeholder="" value="" maxlength="3"/>
+        flexiblePolicy
+		<input id="flexiblePolicy" type="text" class="form-control" placeholder="" value="" maxlength="3"/>
+        strictPolicy
+		<input id="strictPolicy" type="text" class="form-control" placeholder="" value="" maxlength="3"/>
+        Apartment
+		<input id="Apartment" type="text" class="form-control" placeholder="" value="" maxlength="3"/>
+        Privateroom
+		<input id="Privateroom" type="text" class="form-control" placeholder="" value="" maxlength="3"/>
+        Notinstant_bookable
+		<input id="Notinstant_bookable" type="text" class="form-control" placeholder="" value="" maxlength="3"/>
+        superhost
+		<input id="superhost" type="text" class="form-control" placeholder="" value="" maxlength="3"/>
+
+         
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="thumb">
+                                
+                                <a id="pred_lr" href="#" class="thumbnail">
+                                  <p>Linear Regression</p>
+                                  <img src="static/lr.png" alt="Neural Network">
+                                </a>
+                            </div>
+                            <div class="thumb">
+                                <a id="pred_df" href="#" class="thumbnail">
+                                    <p>Boosted Decision Tree</p>
+                                  <img src="static/dt.png" alt="Decision Tree">
+                                </a>
+
+                            </div>
+                            <div class="thumb">
+                                
+                                <a id="pred_nn" href="#" class="thumbnail">
+                                    <p>Neural Network</p>
+                                  <img src="static/nn.png" alt="Neural Network">
+                                </a>
+                            </div>
+                           
+                        </div>
+                        <div class="col-lg-6">
+                            <div id="rbody">
+                                <h4 id ="pretext"></h4>
+                                <h4 id="algorithm"></h4>
+                                <h3 id="result"></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        <!--Body Wrapper ends-->
+        
+  
+    
+    
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="static/antixss.js" type="text/javascript"></script>
+
+    <script>
+        
+        function validate(){
+            
+            var accommodates = $('#frm_credit_score').val();
+            var bathrooms = $('#bathrooms').val();
+            var security_deposit = $('input[name="security_deposit"]:checked').val();
+            var cleaning_fee = $('#cleaning_fee').val();
+            var reviews_per_month = $('#reviews_per_month').val().concat($('#frm_og_year').val());
+            var ScoredRating = $('#ScoredRating option:selected').val();
+            var moderatePolicy = $('#moderatePolicy option:selected').val();
+            floatregex="^[+]?([0-9]+(?:[\\.][0-9]*)?|\\.[0-9]+)$";
+            if(accommodates.match(floatregex)&&(reviews_per_month!="")&&(og_servicer_name!="")&&(security_deposit!="")&&bathrooms.match(floatregex)&&cleaning_fee.match(floatregex)&&(credit_score>=301)&&(credit_score<=850)){
+                return true;
+            }
+            if((accommodates<301)||(accommodates>850)){
+               alert("Credit Score must be numeric and between 301 - 850");
+                $('#pretext').html("");
+                $('#result').html("");
+            }
+            else{
+                alert("All Fields Must be entered and must be positive numeric.");
+                 $('#pretext').html("");
+                $('#result').html("");
+            }
+            return false;
+        }
+        function validateAndReturn(algoType){
+            JSON.stringify({name: name })
+            var accommodates = $('#accommodates').val();
+            var bathrooms = $('#bathrooms').val();
+            var security_deposit = $('input[name="security_deposit"]:checked').val();
+            var cleaning_fee = $('#cleaning_fee').val();
+            var reviews_per_month = $('#reviews_per_month').val();
+            var ScoredRating = $('#ScoredRating ').val();
+            var strictPolicy = $('#strictPolicy ').val();
+            
+            floatregex="([0-9]*[.])?[0-9]+";
+            if (validate()==true){
+                return JSON.stringify({algoType:algoType,accommodates: accommodates,cleaning_fee:cleaning_fee,security_deposit:security_deposit,ScoredRating:ScoredRating, reviews_per_month:reviews_per_month,strictPolicy:strictPolicy});
+            }
+            else return null;
+            
+        }
+        
+        //Event Handler for Clicking Neural Network
+        $("#pred_nn").click(function(e){
+            //alert($("#frm_credit_score").val());
+            var jsonstring=validateAndReturn("pred_nn");
+            if(jsonstring!=null){
+                $.ajax({
+				  method: "POST",
+				  url: "/prediction/getPrediction",
+				  contentType: "application/json",
+				  data: jsonstring
+				})
+                .done(function(data) {
+                    var json_obj = JSON.parse(data);
+                    $('#pretext').html("Predicted Interest Rate using");
+                    $('#algorithm').html("Neural Network")
+                    $('#result').html(json_obj["predicted_interest_rate"]);
+                });
+            }
+            else{
+                $('#algorithm').html("Request could not be completed")
+            }
+            
+        });
+        
+        //Event Handler for Logistic Regression
+        $("#pred_lr").click(function(e){
+            //alert($("#frm_credit_score").val());
+            var jsonstring=validateAndReturn("pred_lr");
+            if(jsonstring!=null){
+                $.ajax({
+				  method: "POST",
+				  url: "/prediction/getPrediction",
+				  contentType: "application/json",
+				  data: jsonstring
+				})
+                .done(function(data) {
+                    var json_obj = JSON.parse(data);
+                    $('#pretext').html("Predicted Interest Rate using");
+                    $('#algorithm').html("Linear Regression")
+                    $('#result').html(json_obj["predicted_interest_rate"]);
+                });
+            }
+            else{
+                $('#algorithm').html("Request could not be completed")
+            }
+            
+        });
+        
+        //Event Handler for Decision Forest
+        $("#pred_df").click(function(e){
+            //alert($("#frm_credit_score").val());
+            var jsonstring=validateAndReturn("pred_df");
+            if(jsonstring!=null){
+                $.ajax({
+				  method: "POST",
+				  url: "/prediction/getPrediction",
+				  contentType: "application/json",
+				  data: jsonstring
+				})
+                .done(function(data) {
+                    var json_obj = JSON.parse(data);
+                    $('#pretext').html("Predicted Interest Rate using");
+                    $('#algorithm').html("Decision Tree")
+                    $('#result').html(json_obj["predicted_interest_rate"]);
+                });
+            }
+            else{
+                $('#algorithm').html("Request could not be completed")
+            }
+            
+        });
+        
+    	//Submit data when enter key is pressed
+        $('#user_name').keydown(function(e) {
+        	var name = $('#user_name').val();
+            if (e.which == 13 && name.length > 0) { //catch Enter key
+            	//POST request to API to create a new visitor entry in the database
+                $.ajax({
+				  method: "POST",
+				  url: "./api/visitors",
+				  contentType: "application/json",
+				  data: JSON.stringify({name: name })
+				})
+                .done(function(data) {
+                    $('#response').html(AntiXSS.sanitizeInput(data));
+                    $('#nameInput').hide();
+                    getNames();
+                });
+            }
+        });
+
+        //Retreive all the visitors from the database
+        function getNames(){
+          $.get("./api/visitors")
+              .done(function(data) {
+                  if(data.length > 0) {
+                    data.forEach(function(element, index) {
+                      data[index] = AntiXSS.sanitizeInput(element)
+                    });
+                    $('#databaseNames').html("Database contents: " + JSON.stringify(data));
+                  }
+              });
+          }
+
+          //Call getNames on page load.
+          getNames();
+
+
+    </script>
+</body>
+
+</html>

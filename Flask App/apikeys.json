@@ -1,0 +1,32 @@
+{
+	
+	"classification":{
+		"decisionjungle":{
+			"apikey":"+jSoI1Zb+sO3K/VU/GZRPnI16EHmSmfjR/J+qGKnoUNk1De7c2cxB5NXh75SHHmgwoA3DXW1M7b065QtFY+Vxw==",
+			"url":"https://ussouthcentral.services.azureml.net/workspaces/d6f23887fe784cfaab8f2d7804d53613/services/a72cc4a11a594fef9e4c631b46aa40f4/execute?api-version=2.0&details=true"
+		},
+		"logisticregression":{
+			"apikey":"",
+			"url":""
+		},
+		"bayestwopoint":{
+			"apikey":"",
+			"url":""
+		}
+	},
+	"prediction":{
+		"boosteddecisiontree":{
+			"apikey":"",
+			"url":""
+		},
+		"linearregression":{
+			"apikey":"dTEVIpt00dyIhqX9odliuCPjgPvpbzIPIV1ltopw8qUM+2vqHLNmzeabzUVXhFudQCRnPcdwqjr6tKer6cwj2A==",
+			"url":"https://ussouthcentral.services.azureml.net/workspaces/d6f23887fe784cfaab8f2d7804d53613/services/6d268a1b2d354be88e02d30b46ca8aab/execute?api-version=2.0&details=true"
+		},
+		
+		"neuralnetwork":{
+			"apikey":"",
+			"url":""
+		}
+	}
+}
