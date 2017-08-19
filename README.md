@@ -18,7 +18,13 @@ Docker is the only installation needed
 # For Machine learning models
 Multiclass classificatio : Rating for Host http://ownerratingmulticlassclassification.azurewebsites.net
 Price prediction for user : http://userpriceprediction.azurewebsites.net/
-Flask Web app for analysis https://airbnbfinal.herokuapp.com/
-Authors
+Flask Web app for analysis :http://ec2-34-213-205-100.us-west-2.compute.amazonaws.com/
+
+# Docker images pull and run :
+## $ docker pull megha8/finaltermdataingestion
+## $ docker push megha8/datawranglingfinalterm
+
+
+# Authors
 
 **Megha Singh** and **Sneha Malshetti**
