@@ -15,6 +15,10 @@ Docker is the only installation needed
 # Youtube video link:
 ## https://youtu.be/lfkaAV_w7K4
 
+# For Machine learning models
+Multiclass classificatio : Rating for Host http://ownerratingmulticlassclassification.azurewebsites.net
+Price prediction for user : http://userpriceprediction.azurewebsites.net/
+Flask Web app for analysis https://airbnbfinal.herokuapp.com/
 Authors
 
 **Megha Singh** and **Sneha Malshetti**
